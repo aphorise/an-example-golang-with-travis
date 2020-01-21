@@ -1,3 +1,16 @@
 language: generic
+go:
+- "1.13"
+- tip
 script:
 - bash test_hello-world.sh
+- bash build.sh
+deploy:
+  provider: releases
+  api_key:
+    secure: F41pg/f46RfWtot7PM/g+jbnD009o3ekf33jtjyUQk85acVHYGu1EOkHQdeTcno5EzPFzzzGKifoCNjKszzxdTyoIJfHD/ae1umQU1iYwT+8EuIKsUqITu3EULDNu5CBZAUng7lkcXyPaY+QMVU0u35Dxc7zcfLGBJFQISytOrG2DvYCNCwfzSPqaxpJMjIcdzvPf13HFSEux8mK1qeEpC3SLXIH7Ifm5fDL1K1wJmevQSHXzvIPaoAGnHrAlkEM9ijIeoQMuo6OTelpY5hXjOnOJhM/Fq4fIvTIAofX7c1EdndoohQMnNFQLjA7ZO0x8B4M7tL9zZ0MOi/cni57QWt2Me8vG9meX+2xHDwwmMDR1wOn4Pb/QMFT1bwB57NgNonHh3o9GXGkW7+5hMwFuEwamVbQPTKI2uUTGNq8qvBeRPaFQgv0+HC11cpQsXBmIwXzGIZUI3TLUR7F8pgz4gvDzUjwy+YR36WBN5tsjUdm+DLjaMIoQxp/0hVo9xUTVektxvlMcwBh5eLCJ/R16Gx7wrVS/SB5u+pSxqEx2Yvju+X/gq1Xb3j7TCA708WHFnCC6toTqkfA20lU8WI8zpwwmvS0GlvhibVLy+MWF8JJ/WEypIGO4NelK4xbCdbg36a1S7UBCjj698kiEQn8KgS/wacy2y96Xz82WowPgDs=
+  file: hello-world.o
+  skip_cleanup: true
+  on:
+    repo: aphorise/an-example-golang-with-travis
+    tags: true
